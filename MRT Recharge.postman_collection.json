@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "99aab0de-66df-410c-a8f2-f755ed2989e5",
+		"name": "MRT Recharge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						""
+					]
+				},
+				"description": "https://heebd.com/?wc-ajax=apply_coupon"
+			},
+			"response": []
+		},
+		{
+			"name": "GetToken",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n \"username\" :  \"admin\",\r\n \"password\" :  \"Dbbl@123\",\r\n \"secret\"   : \"user-secret-key\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"auth",
+						"token"
+					]
+				},
+				"description": "https://heebd.com/?wc-ajax=apply_coupon"
+			},
+			"response": []
+		},
+		{
+			"name": "Get  Request Sample",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6IkRCQkwiLCJleHAiOjE2MzQ5MTIwMjUsImlhdCI6MTYzNDkxMTQyNX0._xoUt--3Fbtlmfrgq2AlPDyAaqvnK7N053OkcvuGp20",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8089/user/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Procedure Call",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6IkRCQkwiLCJleHAiOjE2MzQ5MDEyODIsImlhdCI6MTYzNDkwMDY4Mn0.8BLaa3er_bzR0yZV7ItNvunCpBbn-xZsThMMW9eupAI",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8089/user/{admin}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"{admin}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Request Sample",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6IkRCQkwiLCJleHAiOjE2MzQ4OTIwNzIsImlhdCI6MTYzNDg5MTc3Mn0.7UBpgbfTW686W1FeOoG9BHF7e1M00lNwWYWGr9gF2k4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":{\r\n        \"name\" : \"moshiur\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8089/recharge/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"recharge",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Authority Sample",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6IkRCQkwiLCJleHAiOjE2MzQ5MTIwMjUsImlhdCI6MTYzNDkxMTQyNX0._xoUt--3Fbtlmfrgq2AlPDyAaqvnK7N053OkcvuGp20",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8089/admin/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"admin",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
