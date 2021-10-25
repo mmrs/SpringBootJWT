@@ -1,7 +1,5 @@
 package com.dbbl.mrt.recharge.controller;
 
-import java.util.Optional;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -59,14 +57,10 @@ public class AuthController {
 			return response;
 		}
 
-		MPUser user = new MPUser();
-		user.setUserName(authenticationRequest.getUsername());
-
-		String jwt = jwtUtil.generateToken(user);
+		String jwt = jwtUtil.generateToken(mpUser);
 
 		response.setToken(jwt);
 
 		return response;
-
 	}
 }
