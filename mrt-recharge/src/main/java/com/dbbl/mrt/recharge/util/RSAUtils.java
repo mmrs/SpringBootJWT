@@ -17,9 +17,6 @@ import java.util.Base64;
 
 import com.dbbl.mrt.recharge.config.SecurityConfiguration;
 
-/**
- * RSA Asymmetric encryption tool class Created by liujian on 2020/11/18 21: 00.
- */
 public class RSAUtils {
 
 	/**
