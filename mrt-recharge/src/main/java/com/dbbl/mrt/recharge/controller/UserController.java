@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbbl.mrt.recharge.entity.MPUser;
+import com.dbbl.mrt.recharge.model.FunctionResult;
 import com.dbbl.mrt.recharge.service.IUserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +34,7 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/{username}")
 	public ResponseEntity<?> getUserInfoProcedure(@PathVariable("username") String userName) {
-		Object user = userService.getDataByProcedure(userName);
+		FunctionResult user = userService.getDataByProcedure(userName);
 		log.info("Procedure User Details: " + user);
 		return ResponseEntity.ok(user);
 

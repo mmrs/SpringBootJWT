@@ -2,15 +2,19 @@ package com.dbbl.mrt.recharge.service;
 
 import java.util.Optional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.dbbl.mrt.recharge.entity.MPUser;
+import com.dbbl.mrt.recharge.model.FunctionResult;
 import com.dbbl.mrt.recharge.model.LoginUser;
 import com.dbbl.mrt.recharge.repository.MPUserRepository;
-import com.dbbl.mrt.recharge.repository.ProcedureCallerRepository;
 
 @Service
 public class UserService implements IUserService {
@@ -18,7 +22,7 @@ public class UserService implements IUserService {
 	@Autowired
 	MPUserRepository mpUserRepository;
 	@Autowired
-	ProcedureCallerRepository procedureCallerRepository;
+	EntityManager entityManager;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -39,7 +43,19 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public Object getDataByProcedure(String userName) {
-		return procedureCallerRepository.getData(userName);
+	public FunctionResult getDataByProcedure(String userName) {
+
+		StoredProcedureQuery procedureQuery = entityManager.createStoredProcedureQuery("TEST_PROCEDURE");
+
+		procedureQuery.registerStoredProcedureParameter("USER_NAME", String.class, ParameterMode.INOUT);
+		procedureQuery.registerStoredProcedureParameter("SECRET_KEY", String.class, ParameterMode.OUT);
+
+		procedureQuery.setParameter("USER_NAME", userName);
+
+		FunctionResult functionResult = new FunctionResult();
+		functionResult.setData("SECRET_KEY", procedureQuery.getOutputParameterValue("SECRET_KEY")).setData("USER_NAME",
+				procedureQuery.getOutputParameterValue("USER_NAME"));
+
+		return functionResult;
 	}
 }

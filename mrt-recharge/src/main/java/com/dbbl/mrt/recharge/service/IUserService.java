@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.dbbl.mrt.recharge.entity.MPUser;
+import com.dbbl.mrt.recharge.model.FunctionResult;
 
 public interface IUserService extends UserDetailsService {
 
@@ -13,5 +14,5 @@ public interface IUserService extends UserDetailsService {
 
 	public Optional<MPUser> findByUserName(String userName);
 	
-	public Object getDataByProcedure(String userName);
+	public FunctionResult getDataByProcedure(String userName);
 }
