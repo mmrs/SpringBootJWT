@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// TODO Auto-generate
 
 		http.cors().and().csrf().disable()
-		.authorizeRequests().antMatchers("/auth/token","/","/home").permitAll()
+		.authorizeRequests().antMatchers("/auth/token","/","/home","/app-error").permitAll()
 		.antMatchers("/admin/**").hasAuthority("ADMIN")
 		.anyRequest().authenticated().and().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
