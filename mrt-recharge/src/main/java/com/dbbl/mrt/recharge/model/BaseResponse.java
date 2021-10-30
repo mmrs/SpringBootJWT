@@ -1,9 +1,17 @@
 package com.dbbl.mrt.recharge.model;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
-public class BaseResponse {
+@ToString(callSuper = false)
+@EqualsAndHashCode(callSuper = false)
+@JsonNaming(PropertyNamingStrategies.UpperCamelCaseStrategy.class)
+public class BaseResponse extends BaseModel{
 
 	private Integer status;
 	private String rspCode;

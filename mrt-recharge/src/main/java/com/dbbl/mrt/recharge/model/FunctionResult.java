@@ -4,22 +4,22 @@ import java.util.HashMap;
 
 import org.apache.commons.lang3.StringUtils;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@Data
+@ToString(callSuper = false)
+@EqualsAndHashCode(callSuper = false)
+@JsonNaming(PropertyNamingStrategies.UpperCamelCaseStrategy.class)
 public class FunctionResult extends BaseModel {
 
-	@Setter
-	@Getter
 	private boolean isValid;
-	@Getter
-	@Setter
 	private String msgCode;
-	@Getter
-	@Setter
 	private String msgBody;
-	@Getter
-	@Setter
 	public HashMap<String, Object> data;
 
 	public FunctionResult() {
