@@ -9,12 +9,12 @@
 		<version>2.5.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.dbbl.mrt</groupId>
+	<groupId>com.mmrs.mrt</groupId>
 	<artifactId>recharge</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>recharge</name>
-	<description>DBBL MRT Recharge API</description>
+	<description>MRT Recharge API</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

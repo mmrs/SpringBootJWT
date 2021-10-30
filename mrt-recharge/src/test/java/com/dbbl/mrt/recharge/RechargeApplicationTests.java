@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.dbbl.mrt.recharge.entity.MPUser;
-import com.dbbl.mrt.recharge.util.JwtUtil;
+import com.mmrs.mrt.recharge.entity.MPUser;
+import com.mmrs.mrt.recharge.util.JwtUtil;
 
 @SpringBootTest
 class RechargeApplicationTests {
