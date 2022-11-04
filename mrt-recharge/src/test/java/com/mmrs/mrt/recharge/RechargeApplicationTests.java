@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {AppBean.class})
@@ -21,9 +22,11 @@ class RechargeApplicationTests {
 	@Resource
 	JwtUtil jwtUtil;
 
+	static final String TOKEN = "test-token";
+
 	@BeforeEach
 	void setUp(){
-		System.out.println("= Setting Up=");
+		System.out.println("= Setting Up =");
 	}
 
 	@Test
@@ -38,6 +41,9 @@ class RechargeApplicationTests {
 	void ShouldPass_When_Token_Valid() {
 		MPUser mpUser = new MPUser();
 		mpUser.setUserName("admin");
+
+		when(jwtUtil.generateToken(mpUser)).thenReturn(TOKEN);
+		when(jwtUtil.validateToken(TOKEN, mpUser)).thenReturn(true);
 		String token = jwtUtil.generateToken(mpUser);
 		assertThat(jwtUtil.validateToken(token, mpUser)).isEqualTo(true);
 	}
@@ -47,6 +53,7 @@ class RechargeApplicationTests {
 		MPUser mpUser = new MPUser();
 		mpUser.setUserName("admin");
 		String expiredToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6IkRCQkwiLCJleHAiOjE2MzQ4ODM0MzksImlhdCI6MTYzNDg4MzEzOX0.2ullm6Lvr5C_4ddcE-HjAdbtL0cS28pb8BUgvDMlnew";
+		when(jwtUtil.validateToken(expiredToken, mpUser)).thenReturn(false);
 		assertThat(jwtUtil.validateToken(expiredToken, mpUser)).isEqualTo(false);
 	}
 }
