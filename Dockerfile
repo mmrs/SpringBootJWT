@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:11
 VOLUME /tmp
 EXPOSE 8081
 COPY mrt-recharge/target/*.jar spring-boot-jwt.jar
